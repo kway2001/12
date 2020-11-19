@@ -6,19 +6,33 @@
 
 int main(int argc, char *argv[]) {
 	
-	char c;
-	FILE *fp = NULL;
-	fp = fopen("sample.txt", "r");
+	FILE *fp;
+	char str[100];
+	char name[100];
+	char word[100];
+	
+	printf("original file name : ");
+	scanf("%s", name);
+	printf("word to fine : ");
+	scanf("%s", word);
+	
+	fp = fopen(name, "r");
 	if (fp == NULL)
 	{
+		printf("invalid path! (%s)\n", name);
 		return -1;
 	}
 	
 	
-	while ((c=fgetc(fp)) != EOF) {
-		printf("%c", c);
+	while (fgets(str, 100, fp) != NULL) {
+		if (strncmp(str, word, strlen(word) ) == 0) {
+			printf("Serch done!\n");
+			fclose(fp);
+			return 0;
+		}
 	}
 	
+	printf("Search failed!\n");
 	fclose(fp);
 	
 	return 0;

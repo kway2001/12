@@ -1,23 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
+	//실습 3 
+	char src[] = "The worst things to eat before you sleep";
+	char dst[100];
 	
-	int i = 0;
-	char str[4];
-	str[0] = 'a';
-	str[1] = 'b';
-	str[2] = 'c';
-	str[3] = '\0';
+	strcpy(dst, src);
 	
-	printf("%s\n", str);
+	printf("copide string: %s\n", dst);
 	
-	while (str[i] != '\0') {
-		printf("%c", str[i]);
-		i++;
-	}
+	//실습 4 
+	char str[30] = "happy C programming";
+	
+	printf("length of \"%s\" : %i\n", str, strlen(str));
 	
 	return 0;
 }
